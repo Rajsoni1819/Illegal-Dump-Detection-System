@@ -1,0 +1,67 @@
+{
+  "camera": {
+    "camera_index": 0,
+    "demo_video_path": "demo_video.mp4",
+    "frame_width": 1280,
+    "frame_height": 720,
+    "fps_target": 30
+  },
+  "site": {
+    "site_id": "SITE-DELHI-001",
+    "site_name": "Rajpath Central Green - Sector 4",
+    "latitude": 28.6139,
+    "longitude": 77.2090,
+    "timezone": "Asia/Kolkata"
+  },
+  "detection": {
+    "model_path": "models/yolov8n.pt",
+    "confidence_threshold": 0.35,
+    "iou_threshold": 0.45,
+    "tracker_type": "bytetrack.yaml",
+    "person_classes": [
+      "person"
+    ],
+    "waste_classes": [
+      "bottle",
+      "cup",
+      "backpack",
+      "handbag",
+      "suitcase",
+      "box",
+      "bowl",
+      "waste"
+    ]
+  },
+  "event_logic": {
+    "roi_polygon_normalized": [
+      [0.15, 0.35],
+      [0.85, 0.35],
+      [0.90, 0.88],
+      [0.10, 0.88]
+    ],
+    "event_duration_threshold_seconds": 3.0,
+    "stationary_movement_threshold_pixels": 25.0,
+    "person_separation_distance_pixels": 120.0,
+    "duplicate_cooldown_seconds": 30.0
+  },
+  "evidence": {
+    "save_evidence": true,
+    "evidence_directory": "evidence",
+    "blur_faces": true,
+    "face_blur_factor": 35,
+    "retention_days": 30
+  },
+  "database": {
+    "database_path": "data/dumping_incidents.db"
+  },
+  "notifications": {
+    "email_enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "sender_email": "alerts@smartcity.gov.in",
+    "recipient_email": "officer@smartcity.gov.in",
+    "subject_prefix": "[CRITICAL ALERT] Suspected Illegal Dumping"
+  }
+}
+
